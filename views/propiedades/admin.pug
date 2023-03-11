@@ -1,0 +1,8 @@
+extends ../layout/index.pug
+
+block contenido  
+    div(class= "py-10")
+        h1(class = "font-extrabold text-4xl my-10 text-center") Bienes
+            span(class= "font-normal") Raices
+        h2(class="text-center text-3xl font-extrabold ")= pagina 
+        a(href="/propiedades/crear" class="py-2 rounded bg-indigo-600 hover:bg-indigo-700 text-sm my-5 font-bold uppercase text-center text-white inline-block w-full sm:w-auto" ) Publicar propiedad
