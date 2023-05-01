@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import User from '../models/User.js'
 import {generarId, generarJwt} from '../helpers/tockens.js'
 import {emailRegistro,olvidePassword} from '../helpers/emails.js'
+import { request, response } from 'express';
 
 const formLogin =(req,res)=>{
     res.render('auth/login',{
@@ -10,7 +11,7 @@ const formLogin =(req,res)=>{
         csrfToken: req.csrfToken()
     });
 }
-const autenticar = async(req,res)=>{
+const autenticar = async(req = request,res = response)=>{
     await check('email').isEmail().withMessage('El email es obligatorio').run(req);
     await check('password').notEmpty().withMessage('El password es obligatorio').run(req);
 
